@@ -1,0 +1,563 @@
+# Start your React development Journey from Here..
+
+## Content
+<li><a href="#what">What is React?</a>
+<li><a href="#intro">Introduction to Babel and JSX.</a>
+<li><a href="#jsinjsx"> JavaScript Expressions inside JSX</a>
+<li><a href="#jsx-styling">JSX Attributes and styling React Elements</a>
+<li><a href="#react-components">React Components</a>
+<li><a href="#es6-1">JavaScript ES6 Import and Export modules</a>
+<li><a href="#local-setup">Local Environment Setup for React development</a>
+<li><a href="#props">Props in React</a>
+<li><a href=""></a>
+
+
+
+
+<h1 id="what"> What is React? </h1>
+A javascript library for building user interfaces.<br>
+We end up breaking down a very complex user interface structure into a component
+tree.<br><br>
+
+<h1 id="intro"> Introduction to React, Babel and JSX</h1>
+
+### Start HTML template for react project
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="styles.css">
+ 
+  <title>React App</title>
+</head>
+ 
+<body>
+  <div id="root"></div>
+  <script src="../src/index.js"></script>
+</body>
+ 
+</html>
+```
+
+Everything that we create using react will go inside this div(id=root)<br>
+
+All of code we do in the index.js file in JavaScript using react.
+
+The first thing we have to do in index.js is require react and react-dom modules.
+```javascript
+var React = require("react");
+var ReactDOM = require("react-dom");
+```
+
+### Render Function
+
+<b>ReactDOM.render()</b>
+
+to use React to actually create something on screen ,
+
+we're going to use the render function.
+
+render function takes three inputs. The first input is "WHAT TO SHOW".
+
+second input is "WHERE TO SHOW IT", And finally we
+
+can also add a optional callback to tell us when that render function has completed.
+```javascript
+ReactDOM.render("What to show","Where to show",()=>{
+  
+})
+```
+
+### Writing Hello World in React
+```javascript
+var React = require("react");
+var ReactDOM = require("react-dom");
+ 
+ReactDOM.render(<h1>Hello World</h1>,document.getElementById("root"))
+```
+
+## What is JSX?
+
+we're inside a JavaScript file
+and we're able to write plain HTML without any sort of fancy angle brackets or for example the EJS
+brackets or anything to denote that this is somehow not Javascript.
+So what exactly is this magic?
+Well this is what JSX does. React works by creating these JSX files, so files where we've got
+HTML right in the body of a JavaScript file. And what happened behind the scenes is that our HTML
+is picked up by a compiler and it gets converted or compiled down to actual JavaScript. And the compiler
+comes from including this React module right here.
+
+## What is Babel?
+
+inside the React module, there is something called Babel. And Babel, as they tell you, is a JavaScript compiler. So it's able to take next generation JavaScript like ES 6, 7, 8 and compile it down
+to a version of JavaScript that every browser can understand.
+And this includes compiling JSX down to plain old JavaScript.
+
+
+## React vs Vanilla JavaScript
+
+```javascript
+ReactDOM.render(<h1>Hello World</h1>,
+  document.getElementById("root"))
+  
+// Vanilla js
+var h1 = document.createElement('h1');
+h1.innerHTML = "Hello World";
+document.getElementById("root").appendChild(h1);
+```
+
+## Babel working
+
+Babel actually goes a lot further than just
+rendering JSX, It allows us to use some next generation JavaScript,
+so for example ES6 OR ES 2015. And we can use some of the new constructs that are available through
+these new versions of JavaScript and it's able to compile it down into bog standard normal JavaScript.
+
+## Import Keyword- JavaScript ES6
+
+instead of requiring the React module and setting it to a variable and doing all of this, the new
+way of doing it is to simply just import React from a particular module or a particular location,
+so in our case it's still the React module right here.
+```javascript
+import React from "react";
+```
+
+### Note:-
+
+when we use this render method it can only take a single HTML element.
+That means if you have two HTML elements back to back, then this is not going to work.
+So we can wrap up all the element to a element of HTML just like this-
+
+```javascript
+ReactDOM.render(<div><h1>Hello World</h1><p>This is a paragraph</p></div>,
+  document.getElementById("root"))
+```
+
+<hr>
+
+<h1 id="jsinjsx"> JavaScript Expressions inside JSX</h1>
+
+### Use JS Expressions inside JSX
+If we wanted to insert JavaScript code inside the HTML inside the JavaScript file then what we have to do is to simply wrap the JavaScript inside a set of curly braces.
+
+```javascript
+const name = "Pan Card";
+const Bb = ()=>{
+  return(
+    <div>
+      <h1>My document List</h1>
+      <ul>
+        <li>{name}</li> 
+      </ul>
+    </div>
+  )
+}
+ReactDOM.render(<Bb />,
+document.getElementById("root"))
+```
+
+Note:-
+>We can add any JavaScript expression in between these curly braces which is injecting code into our HTML elements in our JSX file. But we can't write JavaScript statements.
+
+### Statements vs Expressions in JavaScript
+#### Statements
+When we write programs - we describe the sequences of actions that should be performed to get a desired result. In programming languages those actions are called statements. So every Javascript program basically consists of statements. In Javascript statements are separated by semicolons.
+
+```javascript
+let declaredVariable; // variable declaration is a statement
+let otherVariable = 0; // even with assignment
+function functionCall() { // function declaration is a statement
+}
+if(true){} // if is statement
+2+2; // even this is statement
+```
+
+#### Expressions
+Simply speaking an expression returns a value:
+```javascript
+2+2
+true
+true && false
+functionCall() // whatever the function returns
+declaredVariable // whatever the variable value was
+declaredVariable = 'new value' // assignment is an expression
+```
+### Template literals in ES6
+
+if you come from another language you might know it as
+string interpolation.
+
+So basically injecting strings into a piece of JavaScript.
+
+So the way we would do that is add a set of backticks and in between the backticks we can add a dollar
+sign and then another set of curly braces
+and inside here we can add a piece of JavaScript.
+```HTML
+<h1>Hello {`${fname} ${lname}`} </h1>
+```
+
+<hr>
+
+<h1 id="jsx-styling"> JSX Attributes and styling React Elements </h1>
+
+Even though JSX looks like HTML, it's still being rendered down to JavaScript. And
+in JavaScript the property to access all of the classes that exist on an element is a property called
+className.
+
+So In JSX we use html attributes in a different way same as in Javascript.
+```javascript
+<h1 className="headings">My Favourite Foods</h1>
+```
+### Including jsx file in HTML file
+```HTML
+<script src="../src/index.js" type="text/javascript"></script>
+```
+Our HTML file doesn't know that this index.js file is in fact a JSX file. So how to solve this...
+
+```HTML
+<script src="../src/index.js" type="text/JSX"></script>
+```
+when we add an attribute in normal
+HTML, it's not camelcase like this where the first word is lowercase and the next words are capitalized
+like the end for name here.
+> Attribute name should be in camel case
+```JSX
+<h1 className="headings" contentEditable="true">
+```
+
+> Tags should be self closing 
+
+```JSX
+<img src="nsfnoe" />
+```
+
+## Inline Styling in React JSX
+In Javascript, it wants this value for the style property as a Javascript object.
+Javascript objects look like this:
+```JavaScript
+{
+color: "red",
+}
+```
+they exist in a set of curly braces
+and then they have key-value pairs.
+
+So in this case, the key would be the word color and this would behave a bit like a variable, so it's not a string.
+Whereas the value, in terms of CSS anyways, is going to be a string.
+So in this case, it will be red.
+And each of these key-value pairs in a Javascript object is separated by commas not semicolons as you
+would see in the style sheet.
+```JSX
+import React from "react";
+import ReactDOM from "react-dom";
+
+const stylesheet = {
+  headingStyle: {
+    fontSize: "20px",
+    border: "1px solid black",
+    color: "red"
+  },
+  contentStyle: {
+    color: "pink"
+  }
+};
+ReactDOM.render(
+  <div>
+    <h1 style={stylesheet.headingStyle}>Hello World!</h1>
+    <p style={stylesheet.contentStyle}>
+      loremrerniovn prov eivr ikepv evi gkpev ti
+    </p>
+  </div>,
+  document.getElementById("root")
+);
+
+```
+
+If at some point in our code something changes let's say the user did something or the day changed or the time changed became
+morning to night, something happens and we wanted to change the style of our h1.
+
+We don't have to touch any of our code in here.
+All we have to do is to just update the properties of our custom style object.
+
+
+```JSX
+stylesheet.headingStyle.color = "blue";
+```
+
+<hr>
+
+<h1 id="react-components"> React Components </h1>
+
+Give your components a name that is in Pascal case which means that every single word has the first letter capitalized.
+Call this component heading and let's open up a set of parentheses and open up a set of curly braces.
+
+Now in this heading function, all that it's going to do is to return a HTML element that is created using
+
+Javascript.
+```JSX
+const Heading = () => {
+  return (
+    <div>
+      <h1>My Favourite Foods</h1>
+      <ul>
+        <li>Bacon</li>
+        <li>Jamon</li>
+        <li>Noodles</li>
+      </ul>
+    </div>
+  );
+};
+```
+
+## How react differentiate between custom components vs DOM elements
+
+All of our components have names which start with
+a capital letter using Pascal case.
+And this allows React to differentiate between the custom components that we're building versus the
+HTML elements that we're trying to get hold of that exists in the DOM.
+
+### Rendering our custom component
+```JSX
+ReactDOM.render(<Heading></Heading>, document.getElementById("root"));
+```
+
+We can do like this too
+```JSX
+ReactDOM.render(<Heading />, document.getElementById("root"));
+```
+> <a href="https://github.com/airbnb/javascript/tree/master/react">AirBNB React Styling Guide</a>
+
+## Including Components per seperate file
+If I had a very large website and I had all of my components cluttering index
+.js that would be terrible.
+<br>So we're going to use a ES6 feature where we import our heading component from a separate file and it's
+going to be very similar to what we're doing with React and ReactDOM. But in this case we're going to be doing all of the importing and exporting ourselves.<br>
+we would have all of our components separated into individual files with the JSX extension.
+like this--
+> Heading.jsx
+
+#### Importing jsx files into index.js file
+we have to use the ES6 import export functionality.
+#### Export Function
+
+In the file where we've got our component, We're going to export this heading function as the default export.
+```JSX
+export default Heading;
+```
+
+So I'm going to import heading from that heading.jsx file.
+
+So I'm going to use the relative path
+
+so ./, and then heading.jsx
+
+
+But of course in ES6 the extension of the file is actually optional.
+```JSX
+import Heading from "./Heading";
+```
+In mostly cases index.js just has a custom component called App. And instead of all of these things,<br>
+we would have a custom file called App.jsx and inside here we would have all import statements.<br>
+we would render our component as a function called App which returns a div
+which contains that heading custom component as well as the list custom component.
+
+#### Index.js file--
+```JSX
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+ReactDOM.render(
+  <App />,
+  document.getElementById("root")
+);
+```
+
+#### App.jsx file
+```JSX
+import React from "react";
+import Heading from "./Heading";
+import List from "./list";
+const App = () => {
+  return (
+    <div>
+      <Heading />
+      <h1>My fav Places</h1>
+      <List />
+    </div>
+  );
+};
+export default App;
+```
+
+remember that each of these components can now be reused as and when we want to.
+<hr>
+
+<h1 id="es6-1"> JavaScript ES6 Import and Export modules </h1>
+
+#### Exporting something from a module(file) of javascript
+
+
+
+math.js file
+```javascript
+const pi = 3.14;
+export default pi;
+```
+
+#### Importing the file in another  file
+```javascript
+import pi from "./math";
+// pi  3.14
+```
+creating a default export means that when another file writes import something
+from this file, that something is going to be equivalent to the default export. You can use any variable to import that file default export will be imported.
+```javascript
+import x from "./math";
+// x == 3.14
+```
+
+what if we had more than one thing in this file math.js?
+### How would we export multiple things?
+If you want to export more from this file you can export without using default like this.
+
+```javascript
+const pi = 3.14;
+const add=(a,b)=>{
+  return a+b;
+}
+export default pi;
+export {add};
+```
+
+And how we can import these other things to an external file?
+```javascript
+import {add} from "./math"
+```
+
+>What import and
+export and the concept of modules allows us to do is to really be able to start splitting up our large
+Javascript files into individual more manageable components.
+
+How to import everything from a module?
+```javascript
+import * as m from "./file";
+```
+
+<h1 id="local-setup"> Local Environment Setup for React development</h1>
+
+<ol>
+<li>Check node js is up to date
+<li>Install VS code(or any editor of your choice)
+<li><a href="https://reactjs.org/docs/create-a-new-react-app.html">Create React App</a>
+
+Easiest way to create a new react application.
+```Bash
+$ npx create-react-app my-app
+```
+<li>Running React App
+
+```Bash
+$ cd my-app
+$ npm start
+```
+
+Inside our source folder
+the only ones that we want to keep is the index.js.
+And we're going to delete everything else.
+</ol>
+
+
+<hr>
+
+<h1 id="props"> Props in React </h1>
+When we code in plain html we can't define our own attributes as well as elements.
+ But in React components we have almost as a custom HTML element then we can define these attributes.
+And in the React component world, those attributes are called properties and you'll usually hear them
+referred to as <b> props</b>.
+
+So let's create a reusable component card, let's say every card has students informatoion like name, class, section, roll no.
+
+“props” (which stands for properties) object argument with data and returns a React element.
+
+
+```java
+const Student = (props)=>{
+  return(
+    <div>
+      <h2>{props.name}</h2>
+      <h2>{props.rollno}</h2>
+      <h2>{props.class}</h2>
+      <h2>{props.section}</h2>
+      </div>
+  )
+}
+```
+How to use these reusable components with props? 
+```HTML
+<Student name="Tushar Rajpoot" rollno="24" class="12th" section="B1" />
+```
+When React sees an element representing a user-defined component, it passes JSX attributes and children to this component as a single object. We call this object “props”.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+> <br>
+> Tushar Rajput<br>
+> <a href="https://tush-tr.github.io/">tush-tr.github.io</a>
+
+> <br>
