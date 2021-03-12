@@ -9,9 +9,7 @@
 <li><a href="#es6-1">JavaScript ES6 Import and Export modules</a>
 <li><a href="#local-setup">Local Environment Setup for React development</a>
 <li><a href="#props">Props in React</a>
-<li><a href=""></a>
-
-
+<li><a href="#mapping">Mapping Components </a>
 
 
 <h1 id="what"> What is React? </h1>
@@ -504,6 +502,134 @@ When React sees an element representing a user-defined component, it passes JSX 
 
 
 
+
+<hr>
+<h1 id="mapping"> Mapping Components </h1>
+Mapping components make it easy for us to
+map all of individual custom pieces of data to each of these custom components.
+
+```HTML
+<Card
+    name={contacts[0].name}
+    img={contacts[0].imgURL}
+    tel={contacts[0].phone}
+    email={contacts[0].email}
+/>
+<Card
+    name={contacts[1].name}
+    img={contacts[1].imgURL}
+    tel={contacts[1].phone}
+    email={contacts[1].email}
+/>
+```
+we don't need now to repeat these components
+
+## Map function
+map function is a Javascript function that's really useful for handling arrays such as our contacts
+array.
+
+like this array currently contains three items. And each of these are a Javascript object with
+the same properties but different values.
+```javascript
+const contacts = [
+  {
+    id: 1,
+    name: "Beyonce",
+    imgURL:
+      "https://blackhistorywall.files.wordpress.com/2010/02/picture-device-independent-bitmap-119.jpg",
+    phone: "+123 456 789",
+    email: "b@beyonce.com"
+  },
+  {
+    id: 2,
+    name: "Jack Bauer",
+    imgURL:
+      "https://pbs.twimg.com/profile_images/625247595825246208/X3XLea04_400x400.jpg",
+    phone: "+987 654 321",
+    email: "jack@nowhere.com"
+  },
+  {
+    id: 3,
+    name: "Chuck Norris",
+    imgURL:
+      "https://i.pinimg.com/originals/e3/94/47/e39447de921955826b1e498ccf9a39af.png",
+    phone: "+918 372 574",
+    email: "gmail@chucknorris.com"
+  }
+];
+```
+
+### use map function for using this array for rendering its items
+This map function as the input
+the thing that should go inside these parentheses, it expects an actual function.
+So in this case we're calling a function and then passing it a function.
+
+```javascript
+arr.map((element)=>console.log(element))
+```
+
+### functional programming
+where instead of
+passing values around your code, you're passing functions into functions even into functions.
+
+Now we use map function for rendering our contact cards from contact array--
+
+make a createCard function that returns card with props of passed argument
+
+```javascript
+const createCard = (element)=>{
+  return <Card name={element.name} />
+}
+```
+
+
+add map function instead of many card components like this
+```JSX
+{contacts.map(createCard)}
+```
+
+
+what the map function does is it loops through this
+array of contacts
+and for every single item that exists in the array, it calls the createCard function and it passes over
+each of the objects inside the array.
+
+we can also do the same thing  like this
+```javascript
+{contacts.map((contact)=>{
+    return <Card name={contact.name}
+    img={contact.imgURL}
+    tel={contact.phone}
+    email={contact.email} 
+    />
+    })
+}
+```
+
+### key property
+we will have to give components a property that has to be
+called key. And this property has to be something that is unique amongst each of these card components
+that's being created using this loop.
+
+```HTML
+{contacts.map((contact)=>{
+    return <Card
+    key={contact.id}
+    name={contact.name}
+    img={contact.imgURL}
+    tel={contact.phone}
+    email={contact.email} 
+    />
+    })
+}
+```
+
+key prop has to be spelt exactly like this and it's expected by React. And the value can be
+a string or it can be a number, but it must be unique across all of the repeated components.
+
+
+key property for each React component is a special property.
+And it's used to ensure the right order of items goes into the tree, We can't use it as a prop.
 
 
 
