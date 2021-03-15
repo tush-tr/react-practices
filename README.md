@@ -776,8 +776,20 @@ function App() {
 }
 ```
 
+## AND operator
 
+### && in JS
+<pre>
+(Expression && Expression)
+(x>2 && x<8)
+</pre>
 
+### && in React
+<pre>
+condition && Expression
+true && expression
+false && <del>expression</del>
+</pre>
 
 
 
