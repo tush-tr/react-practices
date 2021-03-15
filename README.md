@@ -15,7 +15,7 @@ Some projects I made during learning react are here
 <li><a href="#props">Props in React</a>
 <li><a href="#mapping">Mapping Components </a>
 <li><a href="#es6-functions">Some new ES6 functions on arrays and arrow functions</a>
-
+<li><a href="#conditional">Conditional Rendering in react </a>
 
 <h1 id="what"> What is React? </h1>
 A javascript library for building user interfaces.<br>
@@ -734,6 +734,44 @@ let hello = () => {
 }
 ```
 
+<hr>
+
+<h1 id="conditional"> Conditional Rendering in React</h1>
+what if we have to render a component based on the condition?<br>
+As we know in JSX we can only use js expression inside curly braces but we can't use javascript statements and we can't use if/else statement inside our jsx code.<br>
+so what we can do for this?
+<br>
+create a new function(or component) and return our jsx code conditionaly like this
+```javascript
+const RenderOrNot = ()=>{
+  if(true){
+    return(
+      <h1>You are In</h1>
+    )
+  }
+  else{
+    return(
+      <h1>No you can't go inside</h1>     
+    )
+  }
+}
+```
+
+## Ternary Operator
+```javascript
+condition ? Do if true : Do if false
+```
+
+we can use ternary operator inside jsx code
+```javascript
+function App() {
+  return (
+    <div className="container">    
+      {istrue ? <h1>You are in</h1> : <h1>You can't go inside</h1>}
+    </div>
+  );
+}
+```
 
 
 
