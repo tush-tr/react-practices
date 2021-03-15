@@ -742,7 +742,9 @@ As we know in JSX we can only use js expression inside curly braces but we can't
 so what we can do for this?
 <br>
 create a new function(or component) and return our jsx code conditionaly like this
-```javascript
+
+
+```html
 const RenderOrNot = ()=>{
   if(true){
     return(
@@ -758,12 +760,13 @@ const RenderOrNot = ()=>{
 ```
 
 ## Ternary Operator
+
 ```javascript
 condition ? Do if true : Do if false
 ```
 
 we can use ternary operator inside jsx code
-```javascript
+```HTML
 function App() {
   return (
     <div className="container">    
@@ -824,5 +827,5 @@ function App() {
 > <br>
 > Tushar Rajput<br>
 > <a href="https://tush-tr.github.io/">tush-tr.github.io</a>
-
 > <br>
+><br>
