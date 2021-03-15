@@ -10,6 +10,7 @@
 <li><a href="#local-setup">Local Environment Setup for React development</a>
 <li><a href="#props">Props in React</a>
 <li><a href="#mapping">Mapping Components </a>
+<li><a href="#es6-functions">Some new ES6 functions on arrays and arrow functions</a>
 
 
 <h1 id="what"> What is React? </h1>
@@ -632,6 +633,102 @@ key property for each React component is a special property.
 And it's used to ensure the right order of items goes into the tree, We can't use it as a prop.
 
 
+<hr>
+<h1 id="es6-functions"> Map/Reduce/Filter ES6 functions</h1>
+
+we will look at some of the related functions
+that help us deal with arrays such as map, filter, reduce find, and find index.
+
+## map() function
+<b>Create a new array by doing something with each item in an array.</b>
+
+let's look at this array I have of numbers
+```javascript
+let numbers = [12,34,56,545];
+const double = (n)=>{
+    return  n*2;
+}
+let newNumbers = numbers.map(double);
+```
+
+If I pass this function double into my map function, then it's going to loop through my numbers array
+and for each of the numbers in there it's going to put it as the input of this function and output a
+new array with each item replaced with double the size of the previous one.
+
+#### How to do the same thing using foreach method
+```javascript
+let newNumbers = [];
+numbers.foreach((n)={
+    newNumbers.push(n*2);
+})
+```
+
+So it's more concise using map because this function itself actually returns an output
+which is a new array.
+
+
+## Filter function
+Create a new array by keeping the items that return true.
+```javascript
+const num = [2,3,5,7,12,45,34];
+const newArr = num.filter((e)=>e<10)
+console.log(newArr)
+```
+Do the same thing with foreach--
+```javascript
+let newArr = [];
+num.forEach((e)=>{
+  if(e<10){
+    newArr.push(e)
+  }
+})
+```
+
+## Reduce Function
+Accumulate a value by doing something to each item in an array.
+
+get sum of all elements in an array using foreach
+```javascript
+let arr = [1,2,53,7765,3,5];
+let sum = 0;
+arr.foreach((num)=>{
+    sum+=num;
+})
+```
+Do the same thing using reduce function
+```javascript
+let sumOfnum = num.reduce(function(Accumulator, currentnumber){
+  return Accumulator+currentnumber;
+})
+```
+
+## Find 
+Find the first item that matches from an array.
+
+```javascript
+let findnum = numbers.find((e)=>e>10);
+```
+
+## FindIndex - 
+find the index of the first item that matches.
+```javascript
+let findnum = numbers.findIndex((e)=>e>10)
+// OR
+findnum = numbers.findIndex((e)=>{
+    return e>10;
+})
+```
+
+## Arrow Functions
+
+also known as the fat arrow.
+
+Arrow functions allow us to write shorter function syntax:
+```js
+let hello = () => {
+  return "Hello World!";
+}
+```
 
 
 
