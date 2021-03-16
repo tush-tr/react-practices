@@ -16,6 +16,9 @@ Some projects I made during learning react are here
 <li><a href="#mapping">Mapping Components </a>
 <li><a href="#es6-functions">Some new ES6 functions on arrays and arrow functions</a>
 <li><a href="#conditional">Conditional Rendering in react </a>
+<li><a href="#state">What is state? declarative and imperative programming
+
+
 
 <h1 id="what"> What is React? </h1>
 A javascript library for building user interfaces.<br>
@@ -791,7 +794,36 @@ true && expression
 false && <del>expression</del>
 </pre>
 
+<hr>
+<h1 id="state"> State in React </h1>
+this is a really central concept to how React does things.<br>
+The idea is that the UI(user interface )that somebody's looking at your website sees is a
+function of the state of your app.
 
+```javascript
+let isDone = false;
+function App(){
+    return(
+        <p style={isDone ? { textDecoration: "line-through" } : null}>Todo Task</p>
+    )}
+```
+
+
+><br>
+>we have a user interface that is dependent upon the value of a state variable.<br>
+><br>
+
+## Declarative programming
+this kind of programming is often known as <b>declarative programming.</b> We're declaring
+when we're writing our code how our user interface should look under different conditions dependent
+upon the state.
+
+## Imperative programming
+this is what we've been doing all along
+using Javascript.
+```js
+document.getElementById("root").style.textDecoration = "line-through";
+```
 
 
 
