@@ -16,8 +16,8 @@ Some projects I made during learning react are here
 <li><a href="#mapping">Mapping Components </a>
 <li><a href="#es6-functions">Some new ES6 functions on arrays and arrow functions</a>
 <li><a href="#conditional">Conditional Rendering in react </a>
-<li><a href="#state">What is state? declarative and imperative programming
-
+<li><a href="#state">What is state? declarative and imperative programming</a>
+<li><a href="#usestate">Use State Hook</a>
 
 
 <h1 id="what"> What is React? </h1>
@@ -823,6 +823,152 @@ this is what we've been doing all along
 using Javascript.
 ```js
 document.getElementById("root").style.textDecoration = "line-through";
+```
+
+
+<h1 id="usesate">Use State Hook</h1>
+
+## What are hooks?
+A way of being able to make our website interactive and actually have changeable state.
+
+### we can't change rendered elements inside our jsx code
+If we want to update we have to re-render all of this.
+one way of doing this would be to call ReactDOM.render all over again inside our function(for changing elements ).
+```JSX
+var count = 0;
+const increase = ()=>{
+  count++;
+  console.log("Got clicked")
+}
+
+ReactDOM.render(
+  <div className="container">
+    <h1>{count}</h1> 
+    {
+        // this will not gonna changed(value of count) because 
+        // It has rendered once
+    }
+    <button onClick={increase}>+</button>
+  </div>,
+  document.getElementById("root")
+);
+```
+
+So what we have to do for updating everytime button gets clicked is render elements everytime like this
+```JSX
+var count = 0;
+const increase = ()=>{
+  count++;
+  ReactDOM.render(
+    <div className="container">
+      <h1>{count}</h1>
+      <button onClick={increase}>+</button>
+    </div>,
+    document.getElementById("root")
+  );
+}
+```
+
+We have all of this repetition
+that's not really doing anything for us.
+
+## UseState hook
+
+So how do people actually solve this problem using React?
+Well this is where hooks come in. And there's a hook code useState that is perfect for this situation.
+But one of the rules for using hooks is that you must use a hook inside a functional component.
+
+>So we have to create a function that renders a component and then inside that function we can use hooks.
+
+```javascript
+function App() {
+
+  const state = useState();
+
+  function increase(){
+    
+  }
+
+  return (
+    <div className="container">
+      <h1>{count}</h1>
+      <button onClick={increase}>+</button>
+    </div>
+  );
+}
+```
+
+if we console log our usestate variable value it will return like this
+```
+[undefined, ƒ bound dispatchAction()]
+```
+
+if we pass a value in our useState() hook like this
+```js
+const state = useState(0); // inside parentheses our starting state
+// output- [0, ƒ bound dispatchAction()]
+// we can get out starter state like this-
+console.log(state[0]);
+```
+
+### Destructuring
+ in JavaScript ES6 there's this concept called destructuring and what it allows you to do is to destructure a complex structure.
+So the complex things in JavaScript are objects and arrays.
+
+let's say we have an array like this one
+```js
+const students = ["Tushar", "Rahul","Sahul"];
+```
+We can destructure this array,so that instead of having this name students, we can use a set of square
+brackets. like this and  then we can provide some names for each of the
+elements inside the array ordered by their positions.
+```js
+const [student1, student2, student3] = ["Tushar", "Rahul","Sahul"];
+```
+
+> Note: only when working with arrays - arrays are declared using square brackets, so we also deconstruct them using a square bracket.
+
+
+We can use this concept with our state like this
+```js
+const [count] = useState(0);
+```
+so count is our starter state now and now we can use or render our state like this--
+
+```HTML
+<h1>{count}</h1>
+```
+
+So how do we use this useState hook to update its value?
+
+Well remember that we mentioned that this array that gets returned from this function has two items.
+The first one is a value
+and the second one is a function.
+so lets give the function a name like this-
+```js
+const [count, setCount] = useState(0);
+```
+
+and now we can use this function for interactivity in our starter state
+```js
+function App() {
+  const [count, setCount] = useState(0);
+  function increase(){
+    setCount(12)
+  }
+  return (
+    <div className="container">
+      <h1>{count}</h1>
+      <button onClick={increase}>+</button>
+    </div>
+  );
+}
+```
+now if we want to increase our starter state by 1 on pressing the button so we can do like this
+```js
+function increase(){
+    setCount(count+1)
+  }
 ```
 
 
