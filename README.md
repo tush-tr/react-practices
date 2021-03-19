@@ -18,7 +18,9 @@ Some projects I made during learning react are here
 <li><a href="#conditional">Conditional Rendering in react </a>
 <li><a href="#state">What is state? declarative and imperative programming</a>
 <li><a href="#usestate">Use State Hook</a>
-<li><a href="#destructuring">Destructuring in JavaScript</h1>
+<li><a href="#destructuring">Destructuring in JavaScript</a>
+<li><a href="#handling">Handling events in React </a>
+
 
 <h1 id="what"> What is React? </h1>
 A javascript library for building user interfaces.<br>
@@ -1037,9 +1039,36 @@ let {coloursByPopularity:[hondaTopColour]} = honda;
 let {coloursByPopularity:[teslaTopColour]} = tesla;
 ```
 
+<hr>
 
+<h1 id="handling"> Handling events in React</h1>
 
+let's say we have a function 
 
+```js
+const clicked =()=>{
+    console.log("Clicked")
+  }
+```
+
+and we can use this function to handle onclick event like this
+```js
+<button onClick={clicked}>Submit</button>
+```
+
+if we have to change some content on the page after clicking the button, then we can use our useState hook like this
+```js
+const [headingText, setHeadingText] = useState("Hello");
+
+  const clicked =()=>{
+    console.log("Clicked")
+    setHeadingText("Hello Tushar")
+  }
+```
+
+><a href="https://codesandbox.io/s/event-handling-in-react-forked-usorr?file=/src/components/App.jsx">See this sandbox for more about handling events </a>
+
+<hr>
 
 
 
