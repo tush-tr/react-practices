@@ -1138,10 +1138,57 @@ class Clock extends React.Component {
 }
 ```
 
+So what does managing state using classes actually look like?
 
+Counter app using class component
+```js
+import React from "react";
 
+class ClassComponent extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      count: 0
+    };
+    this.increase = this.increase.bind(this);
+  }
 
+  increase() {
+    this.setState({ count: this.state.count + 1 });
+  }
 
+  render() {
+    return (
+      <div>
+        <h1>{this.state.count}</h1>
+        <button onClick={this.increase}>+</button>
+      </div>
+    );
+  }
+}
+
+export default ClassComponent;
+```
+counter app using functional component and hooks
+```js
+function FunctionalComponent() {
+  const [count, setCount] = useState(0);
+
+  function increase() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={increase}>+</button>
+    </div>
+  );
+}
+```
+>what the React team recommends is that if you're writing new code that you should start using hooks instead of classes because this is a much easier way of managing state.
+
+>you can only use hooks with functional components. You can't use it inside a class component.
 
 
 
