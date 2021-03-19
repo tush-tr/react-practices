@@ -1102,11 +1102,41 @@ in the past, the main reason why people converted their functional components in
 was because it was required in order to have state.
 <a href="https://reactjs.org/docs/state-and-lifecycle.html">State and Lifecycle</a>
 
+## Converting a Function to a Class
+You can convert a function component like Clock to a class in five steps:
+<ol>
+<li>Create an ES6 class, with the same name, that extends React.Component.
+<li>Add a single empty method to it called render().
+<li>Move the body of the function into the render() method.
+<li>Replace props with this.props in the render() body.
+<li>Delete the remaining empty function declaration.
+</ol>
 
-
-
-
-
+```js
+function Clock(props) {
+  return (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {props.date.toLocaleTimeString()}.</h2>
+    </div>
+  );
+}
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
+// OR
+class Clock extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.props.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+```
 
 
 
