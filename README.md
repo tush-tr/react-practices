@@ -20,7 +20,7 @@ Some projects I made during learning react are here
 <li><a href="#usestate">Use State Hook</a>
 <li><a href="#destructuring">Destructuring in JavaScript</a>
 <li><a href="#handling">Handling events in React </a>
-
+<li><a href="#components">Class components vs Functional Components</a>
 
 <h1 id="what"> What is React? </h1>
 A javascript library for building user interfaces.<br>
@@ -1070,13 +1070,37 @@ const [headingText, setHeadingText] = useState("Hello");
 
 <hr>
 
+<h1 id="components">Class Components vs Functional Components </h1>
 
+once upon a time, there were two ways of adding state into a React app.
+One way or what you might call functional components, look like this.
 
+```js 
+function App(){
+  return(
+    <h1>Hello</h1>
+  )
+}
+```
 
+there's also another way that you can in fact create React components. Instead of splitting
+individual components into functions,
+you can also create a class. And the only difference is the keyword, instead of function becomes class.
 
-
-
-
+Classes are not called, so they don't have these parentheses.
+And this class must extend something that comes from the React module something called component.
+And this turns your app class into a React component class. And in order to render what you want to see
+inside this component, you have to add your code inside a render method.
+```js
+class App extends React.Component {
+  render() {
+    return <h1>Hello</h1>;
+  }
+}
+```
+in the past, the main reason why people converted their functional components into class components
+was because it was required in order to have state.
+<a href="https://reactjs.org/docs/state-and-lifecycle.html">State and Lifecycle</a>
 
 
 
