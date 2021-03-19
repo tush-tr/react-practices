@@ -18,7 +18,7 @@ Some projects I made during learning react are here
 <li><a href="#conditional">Conditional Rendering in react </a>
 <li><a href="#state">What is state? declarative and imperative programming</a>
 <li><a href="#usestate">Use State Hook</a>
-
+<li><a href="#destructuring">Destructuring in JavaScript</h1>
 
 <h1 id="what"> What is React? </h1>
 A javascript library for building user interfaces.<br>
@@ -971,7 +971,71 @@ function increase(){
   }
 ```
 
+<hr>
 
+<h1 id="destructuring"> Destructuring Assignment in JavaScript</h1>
+The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+
+```js
+let a, b, rest;
+[a, b] = [10, 20];
+
+console.log(a);
+// expected output: 10
+
+console.log(b);
+// expected output: 20
+
+[a, b, ...rest] = [10, 20, 30, 40, 50];
+
+console.log(rest);
+// expected output: Array [30,40,50]
+
+```
+## Object destructuring
+Basic assignment
+
+```js
+const user = {
+    id: 42,
+    is_verified: true
+};
+
+const {id, is_verified} = user;
+
+console.log(id); // 42
+console.log(is_verified); // true
+```
+lets destructure this array of objects
+```js
+cars = [
+  {
+    model: "Honda Civic",
+    //The top colour refers to the first item in the array below:
+    //i.e. hondaTopColour = "black"
+    coloursByPopularity: ["black", "silver"],
+    speedStats: {
+      topSpeed: 140,
+      zeroToSixty: 8.5
+    }
+  },
+  {
+    model: "Tesla Model 3",
+    coloursByPopularity: ["red", "white"],
+    speedStats: {
+      topSpeed: 150,
+      zeroToSixty: 3.2
+    }
+  }
+];
+```
+```js
+let [honda, tesla] = cars
+let {speedStats: {topSpeed: hondaTopSpeed}} = honda;
+let {speedStats:{topSpeed: teslaTopSpeed}} = tesla;
+let {coloursByPopularity:[hondaTopColour]} = honda;
+let {coloursByPopularity:[teslaTopColour]} = tesla;
+```
 
 
 
