@@ -1,0 +1,13 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.dockLine{
+  display: flex;
+}
+.dock{
+  height: 50px;
+  width: 50px;
+  background-color: aqua;
+  border: 2px solid;
+}
