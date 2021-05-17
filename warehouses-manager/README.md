@@ -1,5 +1,9 @@
-# Warehouses List Manager
+# <a href="https://csb-i1gjt-31g2y1m89-tusharrajput604-gmailcom.vercel.app/"> Warehouses List Manager</a>
+### <a href="https://csb-i1gjt-31g2y1m89-tusharrajput604-gmailcom.vercel.app/">Preview</a>
+
+<a href="https://csb-i1gjt-31g2y1m89-tusharrajput604-gmailcom.vercel.app/">
 <img src="preview.gif">
+</a>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
