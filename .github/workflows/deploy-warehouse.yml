@@ -1,0 +1,34 @@
+name: Warehouses deploy
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+        
+      - name: Install Packages
+        run: npm ci
+        working-directory: ./warehouses-manager
+      - name: Build
+        run: npm run build
+        working-directory: ./warehouses-manager
+
+      - run: ls
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: warehouses-manager/build
