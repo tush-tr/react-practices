@@ -1,0 +1,10 @@
+.task-list-wrapper{
+    width: 80%;
+}
+.item-date{
+    display: flex;
+}
+.item-date-item{
+    width: 15%;
+    margin: 0 5px;
+}

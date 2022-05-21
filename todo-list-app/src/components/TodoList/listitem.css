@@ -1,0 +1,26 @@
+.list-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(153 57 57);
+    color: white;
+    padding: 20px;
+    font-size: large;
+    border-radius: 10px;
+    margin: 20px;
+}
+.list-item .item{
+    width: 33%;
+    margin: 0 5px;
+}
+button{
+    background-color: rgb(179, 23, 23);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+.list-item button:hover{
+    background-color: rgb(243, 61, 61);
+}
