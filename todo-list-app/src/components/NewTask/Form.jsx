@@ -14,6 +14,8 @@ const Form = ({ onAddTaskData }) => {
     const data = {
       name: taskName,
       date: new Date(date),
+      key: Math.random().toString(),
+      id: Math.random().toString(),
     };
     onAddTaskData(data);
   };

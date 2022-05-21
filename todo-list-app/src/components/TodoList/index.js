@@ -1,6 +1,6 @@
 import TaskList from "./List";
 import "./style.css";
-const TodoList = ({ list }) => {
-  return <TaskList list={list} />;
+const TodoList = ({ list,onDeleteHandler }) => {
+  return <TaskList list={list} deleteHandler={onDeleteHandler} />;
 };
 export default TodoList;
